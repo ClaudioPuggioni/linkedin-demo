@@ -3,6 +3,8 @@ import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 const getData = createAsyncThunk("apiRedux/getData", async () => {
   const URL = "https://www.linkedin.com/oauth/v2/accessToken";
 
+  console.log("code asyncThunk", localStorage.getItem("code"));
+
   const response = await fetch(URL, {
     method: "POST ",
     headers: {
