@@ -4,13 +4,17 @@ import "./index.css";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Main from "./components/Main";
 import Profile from "./components/Profile";
+import { Provider } from "react-redux";
+import store from "./store";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
-  <Router>
-    <Routes>
-      <Route path={"/"} element={<Main />} />
-      <Route path={"/profile"} element={<Profile />} />
-    </Routes>
-  </Router>
+  <Provider store={store}>
+    <Router>
+      <Routes>
+        <Route path={"/"} element={<Main />} />
+        <Route path={"/profile"} element={<Profile />} />
+      </Routes>
+    </Router>
+  </Provider>
 );
