@@ -8,7 +8,7 @@ const getData = createAsyncThunk("apiRedux/getData", async () => {
   const response = await fetch(URL, {
     method: "POST",
     headers: {
-      "Content-Type": "x-www-form-urlencoded",
+      "Content-Type": "application/x-www-form-urlencoded",
       grant_type: "authorization_code",
       code: localStorage.getItem("code"),
       client_id: process.env.REACT_APP_CLIENT_ID,
