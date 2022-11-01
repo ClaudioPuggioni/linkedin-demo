@@ -15,6 +15,7 @@ const getData = createAsyncThunk("apiRedux/getData", async () => {
       redirect_uri: "https://linkedin-login-demo.netlify.app/profile",
     },
   });
+  console.log("RESPONSE:", response);
   const data = await response.json();
   console.log("TOKEN DATA:", data);
 });
