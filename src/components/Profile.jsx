@@ -1,9 +1,16 @@
-import React from "react";
+import React, { useEffect } from "react";
+import { useParams } from "react-router-dom";
 
 export default function Profile() {
+  const { code } = useParams();
+  useEffect(() => {
+    localStorage.setItem("code", code);
+    console.log("code is", code);
+  }, []);
+
   return (
     <div>
-      <img src="logo192.png" alt="logo" />
+      <></>
     </div>
   );
 }
