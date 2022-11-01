@@ -1,4 +1,4 @@
-import { nanoid } from "@reduxjs/toolkit";
+// import { nanoid } from "@reduxjs/toolkit";
 import React from "react";
 
 export default function Main() {
