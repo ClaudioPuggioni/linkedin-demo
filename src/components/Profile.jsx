@@ -3,7 +3,7 @@ import React from "react";
 export default function Profile() {
   return (
     <div>
-      <>Profile</>
+      <img src="logo192.png" alt="logo" />
     </div>
   );
 }
