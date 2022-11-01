@@ -23,3 +23,7 @@ const apiSlice = createSlice({
   reducers: {},
   extraReducers: {},
 });
+
+export { getData };
+
+export default apiSlice.reducer;
