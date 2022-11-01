@@ -4,7 +4,7 @@ import { useParams } from "react-router-dom";
 import { getData } from "../slices/apiSlice";
 
 export default function Profile() {
-  const { code } = useParams();
+  let { code } = useParams();
   const dispatch = useDispatch();
 
   useEffect(() => {
