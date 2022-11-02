@@ -29,8 +29,8 @@ export default function Profile() {
   }, []);
 
   return (
-    <div className="profile-container h-screen w-screen flex justify-center items-center bg-[#393545]">
-      <div className="profile-card p-10 flex flex-col items-center h-[700px] w-[500px] bg-[#fff3e9] rounded-xl border-4 border-[#d06a22] ">
+    <div className="profile-container h-screen w-screen flex justify-center items-center bg-[#a498d1]">
+      <div className="profile-card p-10 flex flex-col items-center h-[700px] w-[500px] bg-[#fff3e9] rounded-xl border-4 border-[#0c3d67] ">
         {userInfo ? <img className="w-[300px] rounded-lg border-2" src={userInfo.src} alt="profile" /> : null}
         <div className="profile-text pt-5 text-[27px] font-semibold">
           {userInfo ? userInfo.name : null}
