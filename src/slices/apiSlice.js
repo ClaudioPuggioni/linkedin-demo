@@ -8,7 +8,7 @@ const getData = createAsyncThunk("apiRedux/getData", async () => {
   console.log(process.env.REACT_APP_SECRET_KEY);
   try {
     const response = await fetch(URL, {
-      method: "POST",
+      method: "GET",
       headers: {
         "Content-Type": "application/x-www-form-urlencoded;charset=UTF-8",
       },
