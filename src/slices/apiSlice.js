@@ -3,7 +3,7 @@ import axios from "axios";
 
 const getData = createAsyncThunk("apiRedux/getData", async () => {
   //   const URL = "http://localhost:1111/token";
-  const URL = "http://https://linkedin-demo-server.onrender.com/token";
+  const URL = "https://linkedin-demo-server.onrender.com/token";
   const code = localStorage.getItem("code");
   console.log("REDUX CODE:", code);
 
