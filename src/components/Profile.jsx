@@ -10,7 +10,12 @@ export default function Profile() {
   useEffect(() => {
     localStorage.setItem("code", searchParams.get("code"));
     console.log("code is", searchParams.get("code"));
-    dispatch(getData());
+
+    console.log("URL is", window.location.href);
+    window.location.replace("https://linkedin-login-demo.netlify.app/profile");
+    if (window.location.href === "https://linkedin-login-demo.netlify.app/profile") {
+      dispatch(getData());
+    }
     // eslint-disable-next-line
   }, []);
 
