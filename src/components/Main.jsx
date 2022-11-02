@@ -15,10 +15,11 @@ export default function Main() {
   return (
     <div className="login-container h-screen w-screen flex justify-center items-center bg-[#11053b]">
       <button
-        className="login-btn px-11 py-4 bg-[#ff6a00] text-[23px] text-[#ffffff] rounded-lg font-semibold flex justify-center items-center"
+        className="login-btn pl-8 pr-11 py-4 bg-[#dd5c00] text-[26px] text-[#ffffff] rounded-lg font-semibold flex justify-center items-center hover:bg-[#ff6a00] hover:shadow-custom"
         onClick={handleLogin}
       >
-        Login
+        <img className="w-[40px]" src="assets/linkedin.png" alt="linkediin logo" />
+        &nbsp;&nbsp;Login
       </button>
     </div>
   );
