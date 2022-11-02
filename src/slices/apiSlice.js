@@ -18,7 +18,7 @@ const getData = createAsyncThunk("apiRedux/getData", async () => {
         client_id: process.env.REACT_APP_CLIENT_ID,
         client_secret: process.env.REACT_APP_SECRET_KEY,
         redirect_uri: "https://linkedin-login-demo.netlify.app/profile",
-      }),
+      }).toString(),
     });
     console.log("RESPONSE:", response);
     const data = await response.json();
