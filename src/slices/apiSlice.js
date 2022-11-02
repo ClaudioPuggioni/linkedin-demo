@@ -22,8 +22,8 @@ const getData = createAsyncThunk("apiRedux/getData", async () => {
     const data = await response.json();
     console.log("TOKEN DATA:", data);
   } catch (error) {
-    console.log(error);
-    console.log(error.message);
+    console.error(error);
+    console.error(error.message);
   }
 });
 
