@@ -1,28 +1,21 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
+import axios from "axios";
 
 const getData = createAsyncThunk("apiRedux/getData", async () => {
-  const URL = "https://www.linkedin.com/oauth/v2/accessToken";
+  //   const URL = "http://localhost:1111/token";
+  const URL = "http://https://linkedin-demo-server.onrender.com/token";
+  const code = localStorage.getItem("code");
+  console.log("REDUX CODE:", code);
 
-  console.log("code asyncThunk", localStorage.getItem("code"));
-  console.log(process.env.REACT_APP_CLIENT_ID);
-  console.log(process.env.REACT_APP_SECRET_KEY);
   try {
-    const response = await fetch(URL, {
+    const response = await axios({
       method: "POST",
-      headers: {
-        "Content-Type": "application/x-www-form-urlencoded;charset=UTF-8",
-      },
-      body: new URLSearchParams({
-        grant_type: "authorization_code",
-        code: localStorage.getItem("code"),
-        client_id: process.env.REACT_APP_CLIENT_ID,
-        client_secret: process.env.REACT_APP_SECRET_KEY,
-        redirect_uri: "https://linkedin-login-demo.netlify.app/profile",
-      }).toString(),
+      url: URL,
+      data: { code },
     });
-    console.log("RESPONSE:", response);
-    const data = await response.json();
-    console.log("TOKEN DATA:", data);
+    console.log("RESPONSE.DATA:", response.data);
+
+    return response.data;
   } catch (error) {
     console.error(error);
     console.error(error.message);
@@ -33,7 +26,14 @@ const apiSlice = createSlice({
   name: "apiRedux",
   initialState: { auth: null, userInfo: null },
   reducers: {},
-  extraReducers: {},
+  extraReducers: {
+    [getData.pending]: (state, action) => {},
+    [getData.rejected]: (state, action) => {},
+    [getData.fulfilled]: (state, action) => {
+      const { firstName, lastName, imgURL } = action.payload;
+      state.userInfo = { name: firstName, surname: lastName, src: imgURL };
+    },
+  },
 });
 
 export { getData };

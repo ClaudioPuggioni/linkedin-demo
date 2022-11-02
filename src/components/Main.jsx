@@ -3,10 +3,8 @@ import React from "react";
 
 export default function Main() {
   const handleLogin = () => {
-    // console.log(process.env.REACT_APP_CLIENT_ID);
-    // console.log(process.env.REACT_APP_SECRET_KEY);
-    // window.location.replace("https://www.linkedin.com/oauth/v2/authorization");
     const REDIRECT_URI = "https://linkedin-login-demo.netlify.app/profile";
+    // const REDIRECT_URI = "http://localhost:3000/profile";
     const state = nanoid(21);
     console.log("STATE is:", state);
     window.location.replace(

@@ -3,7 +3,7 @@ import apiSlice from "./slices/apiSlice";
 
 const store = configureStore({
   reducer: {
-    wall: apiSlice,
+    cabinet: apiSlice,
   },
 });
 
