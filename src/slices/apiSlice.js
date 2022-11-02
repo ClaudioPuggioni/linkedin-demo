@@ -12,13 +12,13 @@ const getData = createAsyncThunk("apiRedux/getData", async () => {
       headers: {
         "Content-Type": "application/x-www-form-urlencoded",
       },
-      body: {
+      body: new URLSearchParams({
         grant_type: "authorization_code",
         code: localStorage.getItem("code"),
         client_id: process.env.REACT_APP_CLIENT_ID,
         client_secret: process.env.REACT_APP_SECRET_KEY,
         redirect_uri: "https://linkedin-login-demo.netlify.app/profile",
-      },
+      }),
     });
     console.log("RESPONSE:", response);
     const data = await response.json();
