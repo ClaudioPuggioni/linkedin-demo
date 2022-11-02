@@ -8,8 +8,8 @@ export default function Profile() {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    localStorage.setItem("code", searchParams.get("code"));
-    console.log("code is", searchParams.get("code"));
+    if (searchParams.get("code") !== null) localStorage.setItem("code", searchParams.get("code"));
+    console.log("code is", localStorage.getItem("code"));
 
     console.log("URL is", window.location.href);
     if (window.location.href !== "https://linkedin-login-demo.netlify.app/profile") {
