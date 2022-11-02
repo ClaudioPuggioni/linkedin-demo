@@ -6,20 +6,25 @@ const getData = createAsyncThunk("apiRedux/getData", async () => {
   console.log("code asyncThunk", localStorage.getItem("code"));
   console.log(process.env.REACT_APP_CLIENT_ID);
   console.log(process.env.REACT_APP_SECRET_KEY);
-  const response = await fetch(URL, {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/x-www-form-urlencoded",
-      grant_type: "authorization_code",
-      code: localStorage.getItem("code"),
-      client_id: process.env.REACT_APP_CLIENT_ID,
-      client_secret: process.env.REACT_APP_SECRET_KEY,
-      redirect_uri: "https://linkedin-login-demo.netlify.app/profile",
-    },
-  });
-  console.log("RESPONSE:", response);
-  const data = await response.json();
-  console.log("TOKEN DATA:", data);
+  try {
+    const response = await fetch(URL, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/x-www-form-urlencoded",
+        grant_type: "authorization_code",
+        code: localStorage.getItem("code"),
+        client_id: process.env.REACT_APP_CLIENT_ID,
+        client_secret: process.env.REACT_APP_SECRET_KEY,
+        redirect_uri: "https://linkedin-login-demo.netlify.app/profile",
+      },
+    });
+    console.log("RESPONSE:", response);
+    const data = await response.json();
+    console.log("TOKEN DATA:", data);
+  } catch (error) {
+    console.log(error);
+    console.log(error.message);
+  }
 });
 
 const apiSlice = createSlice({
