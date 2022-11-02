@@ -12,7 +12,9 @@ export default function Profile() {
     console.log("code is", searchParams.get("code"));
 
     console.log("URL is", window.location.href);
-    window.location.replace("https://linkedin-login-demo.netlify.app/profile");
+    if (window.location.href !== "https://linkedin-login-demo.netlify.app/profile") {
+      window.location.replace("https://linkedin-login-demo.netlify.app/profile");
+    }
     if (window.location.href === "https://linkedin-login-demo.netlify.app/profile") {
       dispatch(getData());
     }
